@@ -1,0 +1,7 @@
+Error Processing Email: Team Registration
+The program couldn't process your email because it wasn't formatted correctly. Make sure you follow this format:
+	*Subject* Puzzlehunt Team Registration
+	Team: Your Team Name
+
+
+Also, do not include emoji or other special characters, and make sure your team name contains at least 2 letters and/or numbers.
