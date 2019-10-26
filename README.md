@@ -7,23 +7,29 @@ Note: Reading through the code may spoil some puzzles of the Spring 2019 Puzzleh
 I've never written in Python before and never write a program to deal with emails before, so this was entirely experiment, but I think it was pretty successful.
 
 General Design:
-The program stores data in textfiles and imports them when executed and writes to them when data is receieved. The emails_class, teams_class, puzzles_class, and solves_class handle all file IO.
+The program stores data in textfiles and imports them when executed and writes to them when data is receieved. The emails_class.py, teams_class.py, puzzles_class.py, and solves_class.py handle all file IO.
 
-emails_class
+deformatter.py
+Description: Many strings need to be compared using only the letters and numbers, ignoring case. Strings are considered "deformatted" if they only contain upper-case letters and numbers. 
+
+Implementation:
+deformatter.df_string(input): sets all letters to uppercase and removes any non-alphanumeric characters.
+
+emails_class.py
 Description: Tracks a list of emails to use when messaging all hunt participants. Uses a blacklist to not block certain emails from being added to the list, namely the email used by the server, as this would cause an infinite loop of emails.
 
 Implementaion:
 savefiles_emails.txt: every line contains a different email address
-emails_class.Emails(savefilename): reads from the savefile
+emails_class.Emails(savefilename): inputs data from the savefile
 Emails.addEmail(new_email): adds email if it's new and not on the blacklist.
 
-teams_class
+teams_class.py
 Description: Tracks a list of registered teams; returns information about teams.
-Teams have 2 "names", so to speak. They have deformatted names (more on that later) and formatted names. The deformatted name is used to as the key to find the formatted name. This is done to accommodate teamnames which have special formatting, namely emoji. A quirk of the program is that emoji can't be read from nor included in emails (as this the text settings), but emoji can be included in a textfile, read into a string, and outputted to a textfile. Teams with emoji in their names, i.e. formatted names, also have a non-emoji name which functions as their deformatted.
+Teams are tracked only by their deformatted names, e.g. "Super Solvers" is considered the same ".....supers^o%l^v#e@rs!!!!" because they both deformat to "SUPERSOLVERS". Team uniqueness is determined by the deformating strings, but each team also has a formated name.
+About Emoji: A quirk of the program is that emoji can't be read from nor included in emails (as this the text settings), but emoji can be included in a textfile, read into a string, and outputted to a textfile. (WRITE THIS LATER)
 
-Implementation:
-savefile_teams.txt: every line contains a given team's deformatted name followed by a colon followed by their deformatted name, e.g. "HEARTEYES:😍".
-teams_class.Teams(savefilename):
-Creates object Teams which upon instantiation inputs list of teams from savefile. Each team has a defortmatted name (more on that later) and a formatted name.
-
+h2.Implementation:
+savefile_teams.txt: every line contains a given team's deformatted name followed by a colon followed by their deformatted name, e.g. "SUPERSOLVERS:Super Solvers!".
+teams_class.Teams(savefilename): inputs data from the savefile; any malformed line prints an error message and are ignored
+Teams.isTeam(teamname): returns whether the 
 
