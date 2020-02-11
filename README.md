@@ -1,5 +1,7 @@
 # Spring 2019 UMD Puzzlehunt Email Server
 
+THIS DOCUMENT IS WIP
+
 Goal:
 Create an email server to replace the manual email processing of the previous 2 years' puzzlehunts. Puzzle solving teams should be able to send in emails and be award points for correct answers. In addition, all email inputs should have appropriate responses. The program should run with little to no human oversight.
 Note: Reading through the code may spoil some puzzles of the Spring 2019 Puzzlehunt. The puzzles and their solutions are located here: go.umd.edu/goosechasepuzzles
