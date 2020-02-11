@@ -77,7 +77,7 @@ Implementation:
 <li>Solves.getScoreboard(teams): generates scoreboard with foramtted team names from teams</li>
 <li>Solves.writeScoreboard(teams): publishes scoreboard and puzzle breakdown</li>
 <li>Solves.solvesPerPuzzle(): generates the number of solves per puzzle</li>
-<ul>
+</ul>
 <br>
 
 <strong>Driver (TO BE WRITTEN)</strong><br>
