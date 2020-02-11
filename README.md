@@ -12,14 +12,13 @@ General Design:
 The program stores data in textfiles and imports them when executed and writes to them when data is receieved. The emails_class.py, teams_class.py, puzzles_class.py, and solves_class.py handle all file IO.
 
 
-<strong>deformatter.py<\strong>
+<strong>deformatter.py</strong>
 Description: Many strings need to be compared using only the letters and numbers, ignoring case. Strings are considered "deformatted" if they only contain upper-case letters and numbers. 
 
 Implementation:
 deformatter.df_string(input): sets all letters to uppercase and removes any non-alphanumeric characters.
 
-
-emails_class.py
+<strong>emails_class.py</strong>
 Description: Tracks a list of emails to use when messaging all hunt participants. Uses a blacklist to not block certain emails from being added to the list, namely the email used by the server, as this would cause an infinite loop of emails.
 
 Implementaion:
@@ -28,7 +27,7 @@ emails_class.Emails(savefilename): inputs data from the savefile
 Emails.addEmail(new_email): adds email if it's new and not on the blacklist.
 
 
-teams_class.py
+<strong>teams_class.py</strong>
 Description: Tracks a list of registered teams; returns information about teams.
 Teams are tracked only by their deformatted names, e.g. "Super Solvers" is considered the same ".....supers^o%l^v#e@rs!!!!" because they both deformat to "SUPERSOLVERS". Team uniqueness is determined by the deformating strings, but each team also has a formated name.
 About Emoji: A quirk of the program is that emoji can't be read from nor included in emails (as this the text settings), but emoji can be included in a textfile, read into a string, and outputted to a textfile. (WRITE THIS LATER)
@@ -42,7 +41,7 @@ Teams.getFormatted(teamname, saftey): returns team's formatted name even if it i
 Teams.addTeam(teamname): if team name is unregistered and contains at least 1 alphanumeric character, the team name is registered and returns true; else, do nothing and return false
 
 
-puzzles_class.py
+<strong>puzzles_class.py</strong>
 Description: Reads and stores information about puzzles.
 Each puzzles has several data:
 - a primary title, and 0 or more other titles
@@ -61,7 +60,7 @@ Puzzles.getProperAnswer(title): returns primary solution to puzzle; throws error
 Puzzles.answerResponse(title, answer): returns a postive number if answer is correct; returns 0 if answer is partially correct; returns a negative number if answer is incorrect; throws error if title doesn't belong to any puzzle
 
 
-solves_class.py
+<strong>solves_class.py</strong>
 Description: Tracks which teams and have solved which puzzles and the ranking of teams. When a team solves a puzzle (for the first time) they are awarded points. Teams are ranked by greatest number of points gained in the shortest amount of time. It publishes the scoreboard (which contains team names and their point total ranked from first to last place) and the distribution of puzzle solves (which contains the puzzle title and the number of solves it has) into textfiles.
 
 Implementation:
