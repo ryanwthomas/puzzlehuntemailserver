@@ -60,7 +60,7 @@ Implementation:
 <li>Puzzles.getProperDeformatted(title): returns primary, deformatted value of puzzle; throws error if title doesn't belong to any puzzle</li>
 <li>Puzzles.getProperAnswer(title): returns primary solution to puzzle; throws error if title doesn't belong to any puzzle</li>
 <li>Puzzles.answerResponse(title, answer): returns a postive number if answer is correct; returns 0 if answer is partially correct; returns a negative number if answer is incorrect; throws error if title doesn't belong to any puzzle</li>
-</ul><br>
+</ul><br><br>
 
 <strong>solves_class.py</strong><br>
 Description: Tracks which teams and have solved which puzzles and the ranking of teams. When a team submits the correct answer for a puzzle (for the first time), they are awarded points. Teams are ranked by greatest number of points gained in the shortest amount of time. It publishes the scoreboard (which contains team names and their point total ranked from first to last place) and the distribution of puzzle solves (which contains the puzzle title and the number of solves it has) into textfiles.
