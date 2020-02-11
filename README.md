@@ -3,7 +3,7 @@
 THIS DOCUMENT IS WIP
 
 Goal:
-Create an email server to replace the manual email processing of the previous 2 years' puzzlehunts. Puzzle solving teams should be able to send in emails and be award points for correct answers. In addition, all email inputs should have appropriate responses. The program should run with little to no human oversight.
+Puzzle solving teams should be able to send a email and be award points for correct answers. In addition, all email inputs should have appropriate responses. The program should run with little to no human oversight.
 Note: Reading through the code may spoil some puzzles of the Spring 2019 Puzzlehunt. The puzzles and their solutions are located here: go.umd.edu/goosechasepuzzles
 
 I've never written in Python before and never write a program to deal with emails before, so this was entirely experiment, but I think it was pretty successful.
@@ -12,7 +12,7 @@ General Design:
 The program stores data in textfiles and imports them when executed and writes to them when data is receieved. The emails_class.py, teams_class.py, puzzles_class.py, and solves_class.py handle all file IO.
 
 
-deformatter.py
+<strong>deformatter.py<\strong>
 Description: Many strings need to be compared using only the letters and numbers, ignoring case. Strings are considered "deformatted" if they only contain upper-case letters and numbers. 
 
 Implementation:
