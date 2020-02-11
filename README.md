@@ -62,7 +62,7 @@ Implementation:
 <li>Puzzles.answerResponse(title, answer): returns a postive number if answer is correct; returns 0 if answer is partially correct; returns a negative number if answer is incorrect; throws error if title doesn't belong to any puzzle</li>
 </ul><br>
 
-<strong>solves_class.py</strong>
+<strong>solves_class.py</strong><br>
 Description: Tracks which teams and have solved which puzzles and the ranking of teams. When a team submits the correct answer for a puzzle (for the first time), they are awarded points. Teams are ranked by greatest number of points gained in the shortest amount of time. It publishes the scoreboard (which contains team names and their point total ranked from first to last place) and the distribution of puzzle solves (which contains the puzzle title and the number of solves it has) into textfiles.
 
 Implementation:
@@ -80,5 +80,30 @@ Implementation:
 <ul>
 <br>
 
-Driver (TO BE WRITTEN)
+<strong>Driver (TO BE WRITTEN)</strong><br>
+Description: Creates the IMAP connection to read emails. Contains the bulk of the input tree for how incoming emails are handled (in hindsight, this probably should've been split into a different class). Implements safeguards to ensure no infinite looping.
 
+Implemenation:
+<ul>
+  <li>loops decreases every time inbox is checked</li>
+  <li>Iterate over emails:
+    <ul>
+      <li>if the email's time signature* is past a predetermined time, response with "puzzlehuntover.txt"</li>
+      <li>if email's payload needs to be accessed, iterate through parts of email; if the part is text, add to payload string </li>
+      <li>if subject line is "Team Registration", respond with either "registration_" and "error_preexisting", "success", "invalidteamname", "error_malformation"</li>
+      <li>if subject line is "Answer Submission", respond with either "submission_" and "correct(_presolved)", "incorrect(_presolved)", "partial(_presolved)", "error_(unregistered,puzzledne,malformation)". There is a hard coded portion of this code to handle a unique puzzle that was broken into parts but shared a title.</li>
+      <li>if subject line is "Ask For Help", forward email's payload to a predetermined email </li>
+      <li>if subject line is "Admin Command" and the sender is on the admin list, don't check the inbox anymore, but still finish processing current batch of emails</li>
+      <li>else, no subject matches. respond with "subject_dne"</li>
+</ul>
+      </li>
+  <li>if its predetermined that emails will be deleted or if the program is going to check the inbox again, mark all processed emails as "deleted" and then expunge inbox</li>
+  <li>rewrite the score baord a team has earned points</li>
+</ul>
+
+
+\* After the hunt, we noticed an anomally where we  recieved an email whose time signature was 2 hours before all emails read before and after it. I'm not sure what caused this, but the vunerability could allow teams to cheat by giving themselves quicker solve times. Thankfully, only one instance of this annomally occurred, and it didn't affect ranking.
+
+\* the admin command is probably vunerable to actors who put their name as an admin email
+
+Safety was, unfortunately, not a top priority for this program. Because it was quickly developed for a specific problem, only to be run on one device, and our audience are good actors, functionality and timeliness was put before safety.
