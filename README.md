@@ -107,3 +107,11 @@ Implemenation:
 \* the admin command is probably vunerable to actors who put their name as an admin email
 
 Safety was, unfortunately, not a top priority for this program. Because it was quickly developed for a specific problem, only to be run on one device, and our audience are good actors, functionality and timeliness was put before safety.
+
+Result: Overall, quite the success! Compared to our previous system where several people mannually read, scored, and responed to emails for the duration of the hunt, the program worked with ~5% less human work. Perhaps the biggest downside is that there is now an onus on users to learn how to match specific email formatting, whereas before any formatting was acceptable. Thankfully most users adapted quickly to the formatting, thought not all did.
+For a majority of the hunt, no one had to monitor emails. A few times I was called to check on the program (once when the loops ended for the first time; once when someone was having trouble sending in emails). The biggest program came less than an hour before the hunted end when Google notified us that we'd reached the maximum numbers of emails that could be sent in one day. For the rest of the hunt, I read and responded to emails from a different account. Thankfully, I didn't need to score emails, as the program could still read and score emails fine. As a patch, I could've had emails send from a different account than the one I was reading from, but I didn't want to mess too much with code live, so I decided to go with the safer option of handling input manually.
+I presumably should have used an XML or CSV file for storing data, but I knew I could get textfiles to work, even if it's a hassle to import and export them, and it's inefficient.
+
+Thank you for reading!
+
+
