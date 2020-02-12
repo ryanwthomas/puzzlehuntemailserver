@@ -1,4 +1,0 @@
-Incorrect Guess for %s (But Already Solved)
-Incorrect. Your answer submission for %s was wrong.
-
-Your team has already received points for this puzzle.
