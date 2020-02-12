@@ -24,7 +24,7 @@ class Teams:
             if temp:
                 self.teamnames[ temp.group(1) ] = temp.group(2).strip()
             else:
-                print( "team_class.py\tError on savefile_teams.txt line "+str(line_no)+"\n"+line)
+                print( "team_class.py\tError on savefiles/teams.txt line "+str(line_no)+"\n"+line)
             line_no += 1
 
     def isTeam(self, input):
@@ -62,14 +62,9 @@ class Teams:
         else:
             return False
 
-# t = Teams('savefile_teams.txt')
+# t = Teams('savefiles/teams.txt')
 # print(t.teamnames)
 
-#
-# tempfile = open('new_teamname_export.txt', "w+")
-# tempfile.write("%s" % str(t.teamnames))
-# tempfile.close()
-#
 # input_team = input('give team name 1:\t')
 # print( t.isTeam( input_team ) )
 # if t.isTeam( input_team ):
@@ -88,5 +83,5 @@ class Teams:
 #
 # print(t.teamnames)
 #
-# t = Teams('savefile_teams.txt')
+# t = Teams('savefiles/teams.txt')
 # print(t.teamnames)
