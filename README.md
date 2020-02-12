@@ -23,7 +23,7 @@ deformatter.df_string(input): sets all letters to uppercase and removes any non-
 Description: Tracks a list of emails to use when messaging all hunt participants. Uses a blacklist to not block certain emails from being added to the list, namely the email used by the server, as this would cause an infinite loop of emails.
 
 Implementaion:
-savefiles_emails.txt: every line contains a different email address
+savefiles/emails.txt: every line contains a different email address
 emails_class.Emails(savefilename): inputs data from the savefile
 Emails.addEmail(new_email): adds email if it's new and not on the blacklist.
 
@@ -63,7 +63,7 @@ Implementation:
 </ul><br><br>
 
 <strong>solves_class.py</strong><br>
-Description: Tracks which teams and have solved which puzzles and the ranking of teams. When a team submits the correct answer for a puzzle (for the first time), they are awarded points. Teams are ranked by greatest number of points gained in the shortest amount of time. It publishes the scoreboard (which contains team names and their point total ranked from first to last place) and the distribution of puzzle solves (which contains the puzzle title and the number of solves it has) into textfiles.
+Description: Tracks which teams and have solved which puzzles and the ranking of teams. When a team submits the correct answer for a puzzle (for the first time), they are awarded points. Teams are ranked by greatest number of points gained in the shortest amount of time. It publishes the scoreboard (which contains team names and their point total ranked from first to last place) and the distribution of puzzle solves (which contains the puzzle title and the number of solves it has) into textfiles in /exports.
 
 Implementation:
 <ul>
@@ -88,13 +88,13 @@ Implemenation:
   <li>loops decreases every time inbox is checked</li>
   <li>Iterate over emails:
     <ul>
-      <li>if the email's time signature* is past a predetermined time, response with "puzzlehuntover.txt"</li>
+      <li>if the email's time signature* is past a predetermined time, response with /email_bases/puzzlehuntover.txt</li>
       <li>if email's payload needs to be accessed, iterate through parts of email; if the part is text, add to payload string </li>
-      <li>if subject line is "Team Registration", respond with either "registration_" and "error_preexisting", "success", "invalidteamname", "error_malformation"</li>
-      <li>if subject line is "Answer Submission", respond with either "submission_" and "correct(_presolved)", "incorrect(_presolved)", "partial(_presolved)", "error_(unregistered,puzzledne,malformation)". There is a hard coded portion of this code to handle a unique puzzle that was broken into parts but shared a title.</li>
+      <li>if subject line is "Team Registration", respond with an email base from /email_bases/registration. Either "error_preexisting", "success", "invalidteamname", "error_malformation"</li>
+      <li>if subject line is "Answer Submission", respond with an email base from /email_bases/submission. Either "correct(_presolved)", "incorrect(_presolved)", "partial(_presolved)", "error_(unregistered,puzzledne,malformation)". There is a hard coded portion of this code to handle a unique puzzle that was broken into parts but shared a title.</li>
       <li>if subject line is "Ask For Help", forward email's payload to a predetermined email </li>
       <li>if subject line is "Admin Command" and the sender is on the admin list, don't check the inbox anymore, but still finish processing current batch of emails</li>
-      <li>else, no subject matches. respond with "subject_dne"</li>
+      <li>else, no subject matches. respond with /email_bases/subject_dne.txt</li>
 </ul>
       </li>
   <li>if its predetermined that emails will be deleted or if the program is going to check the inbox again, mark all processed emails as "deleted" and then expunge inbox</li>
