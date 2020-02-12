@@ -1,4 +1,0 @@
-%s Solved!
-Correct! The solution for %s is %s.
-
-%s has earned %d points for a total of %d points.
