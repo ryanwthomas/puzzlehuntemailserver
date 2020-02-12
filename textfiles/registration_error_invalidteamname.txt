@@ -1,0 +1,2 @@
+Invalid Teamname
+Your teamname is invalid. It must contain at least 2 letters or numbers.
