@@ -1,0 +1,37 @@
+Team Registration Successful
+Your team %s was successfully registered.
+
+
+Below are the guideline for submitting other emails.
+
+ANSWER SUBMISSION
+When you think you've solved (or partially solved) a puzzle, send an email to check if your answer is correct. The server can process fully puzzle titles OR puzzle letter IDs, located at the top left of each puzzle.
+
+Answer submission emails should follow this format:
+	*Subject* Puzzlehunt Answer Submission
+	Team: Your Team Name
+	Puzzle: Puzzle Name
+	Answer: Your Answer
+
+ASK FOR HELP
+If you need to talk to a human, or need us to bring something to you, send an email with the subject line "Ask for Help". Please include what you need and where you are.
+
+Below is a list of puzzles, when submitting an email only include the full puzzle title OR the puzzle letter ID.
+
+List of puzzles:
+ - Everything Has Changed or A
+ - Wig Flew or A
+ - OPeration-EDucation or A
+ - Poetic Pathway or B
+ - Smokey Signs or C
+ - Mt. K2 or D
+ - Star Connections or E
+ - Cold, Hard Cash or F
+ - Unova's Premier Ball or G
+ - OXO Containers or H
+ - Super-World Series or I
+ - Morning Cartoons or J
+ - Code of Arms or K
+ - One Sick Mix or L
+ - Search of the Words or M
+ - Nowhere To Be Found or META
