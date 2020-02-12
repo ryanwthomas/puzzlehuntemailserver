@@ -23,10 +23,10 @@ admin_command = deformatter.df_string(admin_command)
 admin_emails = ["ryan.w.thomas@live.com", "ryanwhthomas@gmail.com","umdpuzzle@gmail.com","umdpuzzlehunt@gmail.com"]
 
 # load save files
-teams = teams_class.Teams('savefile/savefile_teams.txt')
-puzzles = puzzles_class.Puzzles('savefile/savefile_puzzles.txt')
-solves = solves_class.Solves('savefile/savefile_solves.txt', puzzles)
-emails = emails_class.Emails('savefile/savefile_emails.txt')
+teams = teams_class.Teams('savefiles/savefile_teams.txt')
+puzzles = puzzles_class.Puzzles('savefiles/savefile_puzzles.txt')
+solves = solves_class.Solves('savefiles/savefile_solves.txt', puzzles)
+emails = emails_class.Emails('savefiles/savefile_emails.txt')
 
 debug = True
 send_emails = True
@@ -142,7 +142,7 @@ while loops > 0:
         if( time_tuple > stop_time ):
             if debug:
                 print("Email past stop time")
-            email_sender.send_email_ff('puzzlehuntover.txt', sender,())
+            email_sender.send_email_ff('email_bases/puzzlehuntover.txt', sender,())
         # if an email that requries the payload to be accessed
         elif (subject == team_registration or\
             subject == answer_submission or\
@@ -177,17 +177,17 @@ while loops > 0:
                     team = temp.group(1)
                     if teams.isTeam(team):
                         team = teams.getFormatted(team)
-                        email_sender.send_email_ff('registration_error_preexisting.txt', sender,(team))
+                        email_sender.send_email_ff('email_bases/registration/error_preexisting.txt', sender,(team))
                     else:
                         teams.addTeam(team)
-                        email_sender.send_email_ff('registration_success.txt', sender,(team))
+                        email_sender.send_email_ff('email_bases/registration/success.txt', sender,(team))
 
                 # matches format, invalid team name
                 elif re.search( 'Team\s*:', payload, re.IGNORECASE):
-                    email_sender.send_email_ff('registration_error_invalidteamname.txt', sender,())
+                    email_sender.send_email_ff('email_bases/registration/error_invalidteamname.txt', sender,())
                 # invalid format
                 else:
-                    email_sender.send_email_ff('registration_error_malformation.txt', sender,())
+                    email_sender.send_email_ff('email_bases/registration/error_malformation.txt', sender,())
 
             ### ANSWER SUBMISSION ###
             elif subject == answer_submission:
@@ -201,9 +201,9 @@ while loops > 0:
                     answer = temp.group(4)
 
                     if not teams.isTeam( team ):
-                        email_sender.send_email_ff('submission_error_unregistered.txt', sender,(team))
+                        email_sender.send_email_ff('email_bases/submission/error_unregistered.txt', sender,(team))
                     elif not puzzles.isPuzzle( puzzle ):
-                        email_sender.send_email_ff('submission_error_puzzledne.txt', sender,())
+                        email_sender.send_email_ff('email_bases/submission/error_puzzledne.txt', sender,())
                     else: # is team and is puzzle
                         puzzle = deformatter.df_string( puzzle )
 
@@ -222,35 +222,35 @@ while loops > 0:
                         if puzzles.answerResponse(puzzle, answer) > 0:
                             answer = puzzles.getProperAnswer(puzzle)
                             if solves.isSolved(team, puzzle):
-                                email_sender.send_email_ff('submission_correct_presolved.txt', sender,(puzzle, puzzle, answer, team))
+                                email_sender.send_email_ff('email_bases/submission/correct_presolved.txt', sender,(puzzle, puzzle, answer, team))
                             else:
                                 rewrite_scoreboard = True
                                 solves.addSolve(team, puzzle, time_tuple)
-                                email_sender.send_email_ff('submission_correct.txt', sender,\
+                                email_sender.send_email_ff('email_bases/submission/correct.txt', sender,\
                                 (puzzle, puzzle, answer, team, puzzles.getPoints(puzzle), solves.getScore(team)))
                         # partial
                         elif puzzles.answerResponse(puzzle, answer) == 0:
                             answer = deformatter.df_string(answer)
                             if solves.isSolved(team, puzzle):
-                                email_sender.send_email_ff('submission_partial_presolved.txt', sender,(puzzle, answer, puzzle))
+                                email_sender.send_email_ff('email_bases/submission/partial_presolved.txt', sender,(puzzle, answer, puzzle))
                             else:
-                                email_sender.send_email_ff('submission_partial.txt', sender,(puzzle, answer, puzzle))
+                                email_sender.send_email_ff('email_bases/submission/partial.txt', sender,(puzzle, answer, puzzle))
                         # incorrect
                         else:
                             if solves.isSolved(team, puzzle):
-                                email_sender.send_email_ff('submission_incorrect_presolved.txt', sender,(puzzle, puzzle))
+                                email_sender.send_email_ff('email_bases/submission/incorrect_presolved.txt', sender,(puzzle, puzzle))
                             else:
-                                email_sender.send_email_ff('submission_incorrect.txt', sender,(puzzle, puzzle))
+                                email_sender.send_email_ff('email_bases/submission/incorrect.txt', sender,(puzzle, puzzle))
                 # does not match format
                 else:
-                    email_sender.send_email_ff('submission_error_malformation.txt', sender,())
+                    email_sender.send_email_ff('email_bases/submission/error_malformation.txt', sender,())
 
             ### ASK FOR HELP ###
             else:
                 # forward email to umdpuzzle
                 email_sender.send_basic_email("New Ask For Help Request\r\n"+payload+"\nFrom "+sender, 'umdpuzzle@gmail.com')
                 # # send "askforhelp_success" email
-                # email_sender.send_email_ff('askforhelp_success.txt', sender,())
+                # email_sender.send_email_ff('email_bases/askforhelp_success.txt', sender,())
         # if admin command and from admin email, halts program
         elif subject == admin_command and sender in admin_emails:
             loops = 0
@@ -258,7 +258,7 @@ while loops > 0:
         # if the email has an unexpected header
         else:
             # send "how to send emails" email
-            email_sender.send_email_ff('subject_dne.txt', sender,())
+            email_sender.send_email_ff('email_bases/subject_dne.txt', sender,())
 
         # desti_folder_name = "Processed"
         # src_folder_name = 'ALL'
