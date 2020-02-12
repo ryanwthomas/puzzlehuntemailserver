@@ -1,0 +1,4 @@
+Keep Going on %s! (But Already Solved)
+Keep going! Your answer submision %s for %s is not the final solution, but you're on the right track.
+
+Your team has already earned points for this puzzle.

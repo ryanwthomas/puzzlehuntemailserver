@@ -1,0 +1,4 @@
+%s Solved (Again)
+Correct! The solution for %s is %s.
+
+%s has already received points for solving this puzzle.

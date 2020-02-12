@@ -1,0 +1,9 @@
+Error Processing Email: Answer Submission
+The program couldn't process your email because it wasn't formatted properly. Make sure you follow this format:
+	*Subject* Puzzlehunt Answer Submission
+	Team: Your Team Name
+	Puzzle: Puzzle Name
+	Answer: Your Answer
+
+
+Also, do not include emoji or other special characters.
