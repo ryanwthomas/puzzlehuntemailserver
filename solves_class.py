@@ -12,8 +12,8 @@ import itertools
 
 class Solves:
 
-    scoreboard_textfile = "export_scoreboard.txt"
-    puzzle_breakdown_textfile = "export_puzzle_breakdown.txt"
+    scoreboard_textfile = "exports/scoreboard.txt"
+    puzzle_breakdown_textfile = "exports/puzzle_breakdown.txt"
 
     # timer = 0
     # input team name (str), get puzzles solved (str list)
@@ -65,7 +65,7 @@ class Solves:
 
                 result = self.addSolve( teamname, puzzle, time, False )
             else:
-                print( "solves_class.property\tError on savefile_puzzles.txt line "+str(line_no))
+                print( "solves_class.property\tError on savefiles/puzzles.txt line "+str(line_no))
             # print('')
             line_no += 1
 
@@ -229,15 +229,15 @@ class Solves:
 
         return toReturn
 
-# p = puzzles_class.Puzzles('savefile_puzzles.txt')
-# s = Solves( 'savefile_solves.txt', p )
+# p = puzzles_class.Puzzles('savefiles/puzzles.txt')
+# s = Solves( 'savefiles/solves.txt', p )
 # print()
 # print( s.solves_by_team )
 # print()
 # print( s.solvetime_by_team )
 # print()
 #
-# t = teams_class.Teams('savefile_teams.txt')
+# t = teams_class.Teams('savefiles/teams.txt')
 #
 # print( s.getScoreboard(t) )
 # # s.addSolve("PuzzlesRFun", "Code of Arms", (2019, 10, 4, 22, 22, 0, 0, 0, 0))
@@ -258,17 +258,17 @@ class Solves:
 #     score = s.getScore(team)
 #     print('%s\t%d' % (team, score))
 #
-# t = teams_class.Teams('savefile_teams.txt')
+# t = teams_class.Teams('savefiles/teams.txt')
 # print( t.teamnames )
 # print()
 # print( '>%s< ' % s.getScoreboard(t) )
 #
-# tempfile = open('export_scoreboard.txt', "w+")
+# tempfile = open('exports/scoreboard.txt', "w+")
 # tempfile.write(s.getScoreboard(t))
 # tempfile.close()
 #
 # print()
 # print( '>%s< ' % s.solvesPerPuzzle() )
-# tempfile = open('export_solvesperpuzzle.txt', "w+")
+# tempfile = open('exports/solvesperpuzzle.txt', "w+")
 # tempfile.write(s.solvesPerPuzzle())
 # tempfile.close()
