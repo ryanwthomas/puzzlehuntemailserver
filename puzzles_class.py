@@ -71,7 +71,7 @@ class Puzzles:
                         self.partials_per_puzzle[puzzle_id] = []
                     puzzle_id += 1
                 else:
-                    print( "puzzles_class.py\tError on savefile_puzzles.txt line "+str(line_no))
+                    print( "puzzles_class.py\tError on savefiles/puzzles.txt line "+str(line_no))
                 # print('')
                 line_no += 1
 
@@ -119,7 +119,7 @@ class Puzzles:
     #
     #     return (dfed_answer in self.partials_per_puzzle[id])
 
-# p = Puzzles('savefile_puzzles.txt')
+# p = Puzzles('savefiles/puzzles.txt')
 # print('Properly Titled Puzzle:\t',end ='')
 # print(p.proper_title_by_puzzle)
 # print()
