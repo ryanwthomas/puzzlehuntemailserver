@@ -40,5 +40,5 @@ class EmailSender:
 #
 #
 # e = EmailSender('umdpuzzlehunt@gmail.com', 'wildgoosechase')
-# e.send_email_from_file('subject_dne.txt', 'ryan.w.thomas@live.com',())
+# e.send_email_from_file('email_bases/subject_dne.txt', 'ryanwhthomas@gmail.com',())
 # print("hello")
