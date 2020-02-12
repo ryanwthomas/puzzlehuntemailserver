@@ -1,9 +1,0 @@
-Unregistered Team
-You tried to submit an answer, but %s is not a registered team.
-
-If you have already registered your team, double check your spelling.
-If you haven't registered your team, please send an email with the following format:
-	*Subject* Puzzlehunt Team Registration
-	Team: Your Team Name
-
-Note: team names must include 2 letters and/or numbers and may not contain emoji.
