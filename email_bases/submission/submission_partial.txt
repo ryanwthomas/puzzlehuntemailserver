@@ -1,2 +1,0 @@
-Keep Going on %s!
-Keep going! Your answer submision %s for %s is not the final solution, but you're on the right track.
