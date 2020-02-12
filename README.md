@@ -1,11 +1,11 @@
-# Spring 2019 UMD Puzzlehunt Email Server
+# Fall 2019 UMD Puzzlehunt Email Server
 
 THIS DOCUMENT IS WIP
 
 Goal:
 Puzzlehunt: teams send in answer submissions. If the answer is correct, and the puzzle hasn't already solved the puzzle, the team is awarded points. If the answer is incorrect or the email is malformed, no points are awarded. All incoming emails should be responded with an appropriate email.
 Puzzle solving teams should be able to send a email and be award points for correct answers. In addition, all email inputs should have appropriate responses. The program should run with little to no human oversight.
-Note: Reading through the code may spoil some puzzles of the Spring 2019 Puzzlehunt. The puzzles and their solutions are located here: go.umd.edu/goosechasepuzzles
+Note: Reading through the code may spoil some puzzles of the Fall 2019 Puzzlehunt. The puzzles and their solutions are located here: go.umd.edu/goosechasepuzzles
 
 I've never written in Python before and never write a program to deal with emails before, so this was entirely experiment, but I think it was pretty successful.
 
