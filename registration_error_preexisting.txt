@@ -1,2 +1,0 @@
-Team Already Registered
-A team with the name %s is already registered.
