@@ -29,6 +29,6 @@ class Emails:
             tempfile.write("\r\n%s" % new_email)
             tempfile.close()
 
-# emails = Emails("savefile_emails.txt")
+# emails = Emails("savefiles/emails.txt")
 #
 # print( emails.email_list)
