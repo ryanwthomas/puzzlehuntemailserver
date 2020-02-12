@@ -23,10 +23,10 @@ admin_command = deformatter.df_string(admin_command)
 admin_emails = ["ryan.w.thomas@live.com", "ryanwhthomas@gmail.com","umdpuzzle@gmail.com","umdpuzzlehunt@gmail.com"]
 
 # load save files
-teams = teams_class.Teams('savefile_teams.txt')
-puzzles = puzzles_class.Puzzles('savefile_puzzles.txt')
-solves = solves_class.Solves('savefile_solves.txt', puzzles)
-emails = emails_class.Emails('savefile_emails.txt')
+teams = teams_class.Teams('savefile/savefile_teams.txt')
+puzzles = puzzles_class.Puzzles('savefile/savefile_puzzles.txt')
+solves = solves_class.Solves('savefile/savefile_solves.txt', puzzles)
+emails = emails_class.Emails('savefile/savefile_emails.txt')
 
 debug = True
 send_emails = True
