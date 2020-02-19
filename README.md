@@ -1,13 +1,13 @@
 # Fall 2019 UMD Puzzlehunt Email Server
 
-THIS DOCUMENT IS WIP
+Problem:
+A puzzlehunt is a competition where teams work to solve puzzles. The correct answers are always a common English phrase. When teams think they have an answer, they submit their answer to the puzzlehunt coordinators. If the answer is correct, they earn points. The team should be notified if their answer was correct, incorrect, or a partial answer (i.e. a phrase you might get while solving a puzzle, but not the final answer). Puzzles can't be solved twice.
 
-Goal:
-Puzzlehunt: teams send in answer submissions. If the answer is correct, and the puzzle hasn't already solved the puzzle, the team is awarded points. If the answer is incorrect or the email is malformed, no points are awarded. All incoming emails should be responded with an appropriate email.
-Puzzle solving teams should be able to send a email and be award points for correct answers. In addition, all email inputs should have appropriate responses. The program should run with little to no human oversight.
+Implementation:
+Teams send answer submissions to an email. A program responds to emails in real time, sends appropriate emails in response, and get track of every team's score. If their email isn't properly formatted, then an error message is returned.
+There is also a feature where teams can register by email.
+
 Note: Reading through the code may spoil some puzzles of the Fall 2019 Puzzlehunt. The puzzles and their solutions are located here: go.umd.edu/goosechasepuzzles
-
-I've never written in Python before and never write a program to deal with emails before, so this was entirely experiment, but I think it was pretty successful.
 
 General Design:
 The program stores data in textfiles and imports them when executed and writes to them when data is receieved. The emails_class.py, teams_class.py, puzzles_class.py, and solves_class.py handle all file IO.
@@ -102,16 +102,15 @@ Implemenation:
 </ul>
 
 
-\* After the hunt, we noticed an anomally where we  recieved an email whose time signature was 2 hours before all emails read before and after it. I'm not sure what caused this, but the vunerability could allow teams to cheat by giving themselves quicker solve times. Thankfully, only one instance of this annomally occurred, and it didn't affect ranking.
+\* After the hunt, we noticed an anomally where an answer submission was marked sent 2 hours before all emails read before and after it. I'm not sure what caused this, but the vunerability could allow teams to cheat by giving themselves quicker solve times. Thankfully, only one instance of this annomally occurred, and it didn't affect ranking.
 
 \* the admin command is probably vunerable to actors who put their name as an admin email
 
 Safety was, unfortunately, not a top priority for this program. Because it was quickly developed for a specific problem, only to be run on one device, and our audience are good actors, functionality and timeliness was put before safety.
 
-Result: Overall, quite the success! Compared to our previous system where several people mannually read, scored, and responed to emails for the duration of the hunt, the program worked with ~5% less human work. Perhaps the biggest downside is that there is now an onus on users to learn how to match specific email formatting, whereas before any formatting was acceptable. Thankfully most users adapted quickly to the formatting, thought not all did.
-For a majority of the hunt, no one had to monitor emails. A few times I was called to check on the program (once when the loops ended for the first time; once when someone was having trouble sending in emails). The biggest program came less than an hour before the hunted end when Google notified us that we'd reached the maximum numbers of emails that could be sent in one day. For the rest of the hunt, I read and responded to emails from a different account. Thankfully, I didn't need to score emails, as the program could still read and score emails fine. As a patch, I could've had emails send from a different account than the one I was reading from, but I didn't want to mess too much with code live, so I decided to go with the safer option of handling input manually.
+Result: Overall, quite the success! Compared to our previous system where several people mannually read, scored, and responed to emails for the duration of the hunt, the program worked with ~5% the human work. Perhaps the biggest downside is the onus on users to learn how to match specific email formatting, whereas before any formatting was acceptable. Thankfully most users adapted quickly to the formatting.
+For a majority of the hunt, no one had to monitor emails. A few times I was called to check on the program (once when the loops ended for the first time; once when someone was having trouble with formatting). The biggest program came less than an hour before the hunted end when Google notified us that we'd reached the maximum numbers of emails that could be sent in one day. For the rest of the hunt, I read emails from our submission's inbox and responded to emails from a different account. Thankfully, I didn't need to score emails, as the program could still read and score emails fine. As a patch, I could've had emails send from a different account than the one I was reading from, but I didn't want to mess with live code, so I decided to go with the safer option of handling input manually.
+
 I presumably should have used an XML or CSV file for storing data, but I knew I could get textfiles to work, even if it's a hassle to import and export them, and it's inefficient.
 
 Thank you for reading!
-
-
